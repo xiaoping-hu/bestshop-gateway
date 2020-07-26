@@ -9,6 +9,7 @@ import { Navbar, Nav } from 'reactstrap';
 import { Home, Brand } from 'app/shared/layout/header/header-components';
 import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu } from 'app/shared/layout/menus';
 import Header from 'app/shared/layout/header/header';
+import {AUTHORITIES} from "app/config/constants";
 
 describe('Header', () => {
   let mountedWrapper;
@@ -17,7 +18,7 @@ describe('Header', () => {
 
   const devProps = {
     isAuthenticated: true,
-    isAdmin: true,
+    authorities: [AUTHORITIES.STORE_OWNER, AUTHORITIES.ADMIN],
     currentLocale: 'en',
     onLocaleChange: localeSpy,
     ribbonEnv: 'dev',

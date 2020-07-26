@@ -93,7 +93,7 @@ export const ProductUpdate = (props: IProductUpdateProps) => {
                 <Label id="descriptionLabel" for="product-description">
                   <Translate contentKey="gatewayApp.productProduct.description">Description</Translate>
                 </Label>
-                <AvField id="product-description" type="text" name="description" />
+                <AvField id="product-description" type="textarea" name="description" />
               </AvGroup>
               <AvGroup>
                 <Label id="priceLabel" for="product-price">
@@ -122,7 +122,7 @@ export const ProductUpdate = (props: IProductUpdateProps) => {
                   }}
                 />
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/product" replace color="info">
+              <Button tag={Link} id="cancel-save" to={`/product/${productEntity.id}`} replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">

@@ -8,12 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink as Link } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading-bar';
 
+import { AUTHORITIES } from 'app/config/constants';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import { Home, Brand } from './header-components';
 import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu } from '../menus';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
-  isAdmin: boolean;
+  authorities: string[];
   ribbonEnv: string;
   isInProduction: boolean;
   isSwaggerEnabled: boolean;
@@ -53,8 +55,9 @@ const Header = (props: IHeaderProps) => {
         <Collapse isOpen={menuOpen} navbar>
           <Nav id="header-tabs" className="ml-auto" navbar>
             <Home />
-            {props.isAuthenticated && <EntitiesMenu />}
-            {props.isAuthenticated && props.isAdmin && (
+            {props.isAuthenticated && hasAnyAuthority(props.authorities, [AUTHORITIES.STORE_OWNER, AUTHORITIES.ADMIN])
+            && (<EntitiesMenu />)}
+            {props.isAuthenticated && hasAnyAuthority(props.authorities, [AUTHORITIES.ADMIN]) && (
               <AdminMenu showSwagger={props.isSwaggerEnabled} showDatabase={!props.isInProduction} />
             )}
             <LocaleMenu currentLocale={props.currentLocale} onClick={handleLocaleChange} />
