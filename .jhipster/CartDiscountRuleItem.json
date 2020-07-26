@@ -1,0 +1,33 @@
+{
+  "name": "CartDiscountRuleItem",
+  "fields": [
+    {
+      "fieldName": "productId",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cartDiscountRule",
+      "otherEntityRelationshipName": "cartDiscountRuleItem",
+      "relationshipName": "cartDiscountRule",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200726091817",
+  "entityTableName": "cart_discount_rule_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "microserviceName": "cart"
+}

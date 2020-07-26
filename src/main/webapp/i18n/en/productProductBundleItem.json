@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "productProductBundleItem": {
+      "home": {
+        "title": "Product Bundle Items",
+        "createLabel": "Create a new Product Bundle Item",
+        "createOrEditLabel": "Create or edit a Product Bundle Item",
+        "notFound": "No Product Bundle Items found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product Bundle Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Bundle Item"
+      },
+      "quantity": "Quantity",
+      "discountAmount": "Discount Amount",
+      "productBundle": "Product Bundle",
+      "product": "Product"
+    }
+  },
+  "productApp": {
+    "productProductBundleItem": {
+      "created": "A new Product Bundle Item is created with identifier {{ param }}",
+      "updated": "A Product Bundle Item is updated with identifier {{ param }}",
+      "deleted": "A Product Bundle Item is deleted with identifier {{ param }}"
+    }
+  }
+}

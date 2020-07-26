@@ -1,0 +1,47 @@
+@service(serviceClass)
+entity Product{
+	title String maxlength(256) required,
+    description String,
+    price BigDecimal required,
+  	imageUrl String maxlength(256)
+}
+
+@service(serviceClass)
+entity ProductBundle{
+	name String maxlength(256) required,
+}
+
+@service(serviceClass)
+entity ProductBundleItem{
+	quantity Integer required,
+    discountAmount Integer required
+}
+
+relationship OneToMany{
+	ProductBundle{productBundleItems} to ProductBundleItem{productBundle}
+    Product{productBundleItems} to ProductBundleItem{product}
+}
+
+@service(serviceClass)
+entity CartDiscountRule{
+ 	name String maxlength(256) required,
+    minimumQuantity Integer required,
+    discountQuantity Integer required,
+    discountAmount Integer required
+ }
+ 
+ @service(serviceClass)
+ entity CartDiscountRuleItem{
+ 	productId Integer required
+ }
+ 
+ relationship OneToMany{
+	CartDiscountRule{cartDiscountRuleItem} to CartDiscountRuleItem{cartDiscountRule}
+}
+
+paginate Product, ProductBundle, ProductBundleItem, CartDiscountRule, CartDiscountRuleItem with pagination
+microservice Product, ProductBundle, ProductBundleItem with product
+microservice CartDiscountRule, CartDiscountRuleItem with cart
+
+
+

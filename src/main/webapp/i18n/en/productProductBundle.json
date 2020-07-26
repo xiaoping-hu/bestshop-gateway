@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "productProductBundle": {
+      "home": {
+        "title": "Product Bundles",
+        "createLabel": "Create a new Product Bundle",
+        "createOrEditLabel": "Create or edit a Product Bundle",
+        "notFound": "No Product Bundles found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product Bundle {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Bundle"
+      },
+      "name": "Name",
+      "productBundleItems": "Product Bundle Items"
+    }
+  },
+  "productApp": {
+    "productProductBundle": {
+      "created": "A new Product Bundle is created with identifier {{ param }}",
+      "updated": "A Product Bundle is updated with identifier {{ param }}",
+      "deleted": "A Product Bundle is deleted with identifier {{ param }}"
+    }
+  }
+}

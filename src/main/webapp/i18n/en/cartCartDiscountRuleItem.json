@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "cartCartDiscountRuleItem": {
+      "home": {
+        "title": "Cart Discount Rule Items",
+        "createLabel": "Create a new Cart Discount Rule Item",
+        "createOrEditLabel": "Create or edit a Cart Discount Rule Item",
+        "notFound": "No Cart Discount Rule Items found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Cart Discount Rule Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Cart Discount Rule Item"
+      },
+      "productId": "Product Id",
+      "cartDiscountRule": "Cart Discount Rule"
+    }
+  },
+  "cartApp": {
+    "cartCartDiscountRuleItem": {
+      "created": "A new Cart Discount Rule Item is created with identifier {{ param }}",
+      "updated": "A Cart Discount Rule Item is updated with identifier {{ param }}",
+      "deleted": "A Cart Discount Rule Item is deleted with identifier {{ param }}"
+    }
+  }
+}

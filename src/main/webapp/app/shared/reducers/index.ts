@@ -12,6 +12,26 @@ import activate, { ActivateState } from 'app/modules/account/activate/activate.r
 import password, { PasswordState } from 'app/modules/account/password/password.reducer';
 import settings, { SettingsState } from 'app/modules/account/settings/settings.reducer';
 import passwordReset, { PasswordResetState } from 'app/modules/account/password-reset/password-reset.reducer';
+// prettier-ignore
+import product, {
+  ProductState
+} from 'app/entities/product/product/product.reducer';
+// prettier-ignore
+import productBundle, {
+  ProductBundleState
+} from 'app/entities/product/product-bundle/product-bundle.reducer';
+// prettier-ignore
+import productBundleItem, {
+  ProductBundleItemState
+} from 'app/entities/product/product-bundle-item/product-bundle-item.reducer';
+// prettier-ignore
+import cartDiscountRule, {
+  CartDiscountRuleState
+} from 'app/entities/cart/cart-discount-rule/cart-discount-rule.reducer';
+// prettier-ignore
+import cartDiscountRuleItem, {
+  CartDiscountRuleItemState
+} from 'app/entities/cart/cart-discount-rule-item/cart-discount-rule-item.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -25,6 +45,11 @@ export interface IRootState {
   readonly passwordReset: PasswordResetState;
   readonly password: PasswordState;
   readonly settings: SettingsState;
+  readonly product: ProductState;
+  readonly productBundle: ProductBundleState;
+  readonly productBundleItem: ProductBundleItemState;
+  readonly cartDiscountRule: CartDiscountRuleState;
+  readonly cartDiscountRuleItem: CartDiscountRuleItemState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -40,6 +65,11 @@ const rootReducer = combineReducers<IRootState>({
   passwordReset,
   password,
   settings,
+  product,
+  productBundle,
+  productBundleItem,
+  cartDiscountRule,
+  cartDiscountRuleItem,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });
