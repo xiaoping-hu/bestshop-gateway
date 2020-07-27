@@ -17,6 +17,7 @@
       "minimumQuantity": "Minimum Quantity",
       "discountQuantity": "Discount Quantity",
       "discountAmount": "Discount Amount",
+      "priority": "Priority",
       "cartDiscountRuleItem": "Cart Discount Rule Item"
     }
   },

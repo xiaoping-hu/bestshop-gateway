@@ -14,7 +14,9 @@ import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { IProduct } from 'app/shared/model/product/product.model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export interface IHomeProp extends IProductProps, StateProps {}
+import { addProductToCart } from 'app/entities/cart/cart/cart.reducer';
+
+export interface IHomeProp extends IProductProps, StateProps, DispatchProps  {}
 
 export const Home = (props: IHomeProp) => {
   const [paginationState, setPaginationState] = useState(getSortState(props.location, ITEMS_PER_PAGE));
@@ -53,7 +55,7 @@ export const Home = (props: IHomeProp) => {
 
   const handleFilter = evt => setFilterState(evt.target.value);
 
-  const addToCart = (p: IProduct) => () => {};
+  const addToCart = (id: number) => () => props.addProductToCart(id);
 
   const { account, productList, match, loading, totalItems } = props;
 
@@ -111,7 +113,7 @@ export const Home = (props: IHomeProp) => {
                              <TextFormat value={product.price as any} type="number" format={'$ 0,0.00'} />
                            </p>
                            <div>
-                             <Button onClick={addToCart(product)} color="primary" size="sm">
+                             <Button onClick={addToCart(product.id)} color="primary" size="sm">
                                <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Add to Cart</span>
                              </Button>
                            </div>
@@ -177,9 +179,10 @@ const mapStateToProps = ({ product, authentication }: IRootState) => ({
 });
 
 const mapDispatchToProps = {
-  getEntities
+  getEntities, addProductToCart
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = typeof mapDispatchToProps;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

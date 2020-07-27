@@ -50,6 +50,12 @@ export const CartDiscountRuleDetail = (props: ICartDiscountRuleDetailProps) => {
             </span>
           </dt>
           <dd>{cartDiscountRuleEntity.discountAmount}</dd>
+          <dt>
+            <span id="priority">
+              <Translate contentKey="gatewayApp.cartCartDiscountRule.priority">Priority</Translate>
+            </span>
+          </dt>
+          <dd>{cartDiscountRuleEntity.priority}</dd>
         </dl>
         <Button tag={Link} to="/cart-discount-rule" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

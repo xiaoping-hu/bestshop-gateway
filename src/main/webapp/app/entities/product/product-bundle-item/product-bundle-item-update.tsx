@@ -125,7 +125,7 @@ export const ProductBundleItemUpdate = (props: IProductBundleItemUpdateProps) =>
                   {productBundles
                     ? productBundles.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}
@@ -140,7 +140,7 @@ export const ProductBundleItemUpdate = (props: IProductBundleItemUpdateProps) =>
                   {products
                     ? products.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.title}
                         </option>
                       ))
                     : null}

@@ -10,21 +10,26 @@ import { getEntity } from './product.reducer';
 import { AUTHORITIES } from 'app/config/constants';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import {IProduct} from "app/shared/model/product/product.model";
+import { addProductToCart, addProductBundleToCart } from 'app/entities/cart/cart/cart.reducer';
+import { getProductBundlesByProductId } from 'app/entities/product/product-bundle/product-bundle.reducer'
 
 export interface IProductDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ProductDetail = (props: IProductDetailProps) => {
   useEffect(() => {
     props.getEntity(props.match.params.id);
+    props.getProductBundlesByProductId(props.match.params.id)
   }, []);
-  const addToCart = (p: IProduct) => () => {};
-  const { productEntity, isPowerUser } = props;
+  const addToCart = (id: number) => () => props.addProductToCart(id);
+  const addBundleToCart = (id: number) => () => props.addProductBundleToCart(id);
+  const { productEntity, isPowerUser, productBundles } = props;
+
   return (
     <Row>
       <Col>
         <Row className="mb-3">
           <Col md={4} className="d-flex flex-row">
-            <Button onClick={addToCart(productEntity)} color="primary" size="md">
+            <Button onClick={addToCart(productEntity.id)} color="primary" size="md">
               <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Add to Cart</span>
             </Button>
           </Col>
@@ -80,9 +85,51 @@ export const ProductDetail = (props: IProductDetailProps) => {
             <CardImg top width={"100%"} src={productEntity.imageUrl} alt="Card image cap" />
           </Col>
         </Row>
+        <h3>Related Bundle Sales</h3>
         <hr/>
         <Row className="mt-5">
+          {productBundles.map((bundle, bundleIndex) => (<Card key={`bundle-${bundleIndex}`} className="ml-5" style={{width: "25vw"} }>
+            <Row>
+            <Col md={6}>
+              <span>{bundle.name}</span>
+            </Col>
+            <Col md={6} className="d-flex flex-row-reverse" >
+              <Button onClick={addBundleToCart(productEntity.id)} color="primary" size="md">
+                <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Add Bundle to Cart</span>
+              </Button>
+            </Col>
+            </Row>
+            <CardBody>
+            {bundle.productBundleItems.map((bundleItem, bundleItemIndex) => (
+              <a key={`bundle-item-${bundleItemIndex}`}>
+            <div className="row">
+              <div className="col-2 col-xs-12 justify-content-center">
+                {bundleItem.product.imageUrl ? (
+                  <img src={bundleItem.product.imageUrl} style={{ maxHeight: '30px' }} />
+                ) : null}
+              </div>
+              <div className="col col-xs-12">
 
+                <div className="d-flex w-100 justify-content-between">
+
+                  <Button tag={Link} to={`/product/${bundleItem.product.id}`} color="link" size="sm" className="px-0">
+                    {bundleItem.product.title}
+                  </Button>
+
+                </div>
+                <div>
+                  <small className="mb-1">{bundleItem.product.description}</small>{' '}
+                </div>
+                <div className="d-flex w-100 justify-content-between">
+                  <p className="mb-1">
+                    <TextFormat value={bundleItem.product.price as any} type="number" format={'$ 0,0.00'} />
+                  </p>
+                </div>
+              </div>
+            </div>
+              </a>))
+            }</CardBody>
+          </Card>))}
         </Row>
       </Col>
 
@@ -90,12 +137,13 @@ export const ProductDetail = (props: IProductDetailProps) => {
   );
 };
 
-const mapStateToProps = ({ product, authentication }: IRootState) => ({
+const mapStateToProps = ({ product, productBundle, authentication }: IRootState) => ({
   productEntity: product.entity,
+  productBundles: productBundle.entities,
   isPowerUser: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN, AUTHORITIES.STORE_OWNER])
 });
 
-const mapDispatchToProps = { getEntity };
+const mapDispatchToProps = { getEntity, addProductToCart, addProductBundleToCart, getProductBundlesByProductId};
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

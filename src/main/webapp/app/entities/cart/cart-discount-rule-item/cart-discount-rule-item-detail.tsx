@@ -35,7 +35,7 @@ export const CartDiscountRuleItemDetail = (props: ICartDiscountRuleItemDetailPro
           <dt>
             <Translate contentKey="gatewayApp.cartCartDiscountRuleItem.cartDiscountRule">Cart Discount Rule</Translate>
           </dt>
-          <dd>{cartDiscountRuleItemEntity.cartDiscountRule ? cartDiscountRuleItemEntity.cartDiscountRule.id : ''}</dd>
+          <dd>{cartDiscountRuleItemEntity.cartDiscountRule ? cartDiscountRuleItemEntity.cartDiscountRule.name : ''}</dd>
         </dl>
         <Button tag={Link} to="/cart-discount-rule-item" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

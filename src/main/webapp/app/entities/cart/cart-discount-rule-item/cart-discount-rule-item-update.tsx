@@ -3,16 +3,12 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
+import { Translate, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { ICartDiscountRule } from 'app/shared/model/cart/cart-discount-rule.model';
 import { getEntities as getCartDiscountRules } from 'app/entities/cart/cart-discount-rule/cart-discount-rule.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './cart-discount-rule-item.reducer';
-import { ICartDiscountRuleItem } from 'app/shared/model/cart/cart-discount-rule-item.model';
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
 
 export interface ICartDiscountRuleItemUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -106,7 +102,7 @@ export const CartDiscountRuleItemUpdate = (props: ICartDiscountRuleItemUpdatePro
                   {cartDiscountRules
                     ? cartDiscountRules.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}

@@ -3,7 +3,7 @@ import { Translate } from 'react-jhipster';
 
 import { NavItem, NavLink, NavbarBrand } from 'reactstrap';
 import { NavLink as Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import appConfig from 'app/config/constants';
 
@@ -30,6 +30,15 @@ export const Home = props => (
       <span>
         <Translate contentKey="global.menu.home">Home</Translate>
       </span>
+    </NavLink>
+  </NavItem>
+);
+
+export const Cart = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/cart" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="shopping-cart" />
+      <span>Cart</span>
     </NavLink>
   </NavItem>
 );

@@ -41,11 +41,11 @@ export const ProductBundleItemDetail = (props: IProductBundleItemDetailProps) =>
           <dt>
             <Translate contentKey="gatewayApp.productProductBundleItem.productBundle">Product Bundle</Translate>
           </dt>
-          <dd>{productBundleItemEntity.productBundle ? productBundleItemEntity.productBundle.id : ''}</dd>
+          <dd>{productBundleItemEntity.productBundle ? productBundleItemEntity.productBundle.name : ''}</dd>
           <dt>
             <Translate contentKey="gatewayApp.productProductBundleItem.product">Product</Translate>
           </dt>
-          <dd>{productBundleItemEntity.product ? productBundleItemEntity.product.id : ''}</dd>
+          <dd>{productBundleItemEntity.product ? productBundleItemEntity.product.title : ''}</dd>
         </dl>
         <Button tag={Link} to="/product-bundle-item" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

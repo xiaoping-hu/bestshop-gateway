@@ -106,7 +106,7 @@ export const CartDiscountRuleItem = (props: ICartDiscountRuleItemProps) => {
                   <td>
                     {cartDiscountRuleItem.cartDiscountRule ? (
                       <Link to={`cart-discount-rule/${cartDiscountRuleItem.cartDiscountRule.id}`}>
-                        {cartDiscountRuleItem.cartDiscountRule.id}
+                        {cartDiscountRuleItem.cartDiscountRule.name}
                       </Link>
                     ) : (
                       ''

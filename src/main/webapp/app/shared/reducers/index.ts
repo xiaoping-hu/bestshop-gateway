@@ -33,6 +33,7 @@ import cartDiscountRuleItem, {
   CartDiscountRuleItemState
 } from 'app/entities/cart/cart-discount-rule-item/cart-discount-rule-item.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
+import cart, { CartState } from 'app/entities/cart/cart/cart.reducer';
 
 export interface IRootState {
   readonly authentication: AuthenticationState;
@@ -50,6 +51,8 @@ export interface IRootState {
   readonly productBundleItem: ProductBundleItemState;
   readonly cartDiscountRule: CartDiscountRuleState;
   readonly cartDiscountRuleItem: CartDiscountRuleItemState;
+  readonly cart: CartState;
+
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -70,6 +73,7 @@ const rootReducer = combineReducers<IRootState>({
   productBundleItem,
   cartDiscountRule,
   cartDiscountRuleItem,
+  cart,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });

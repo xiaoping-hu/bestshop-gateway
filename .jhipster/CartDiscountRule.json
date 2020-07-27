@@ -30,6 +30,13 @@
       "fieldValidateRules": [
         "required"
       ]
+    },
+    {
+      "fieldName": "priority",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
     }
   ],
   "relationships": [

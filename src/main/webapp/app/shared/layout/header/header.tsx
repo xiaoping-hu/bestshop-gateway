@@ -10,7 +10,7 @@ import LoadingBar from 'react-redux-loading-bar';
 
 import { AUTHORITIES } from 'app/config/constants';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
-import { Home, Brand } from './header-components';
+import { Home, Brand, Cart } from './header-components';
 import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu } from '../menus';
 
 export interface IHeaderProps {
@@ -55,6 +55,8 @@ const Header = (props: IHeaderProps) => {
         <Collapse isOpen={menuOpen} navbar>
           <Nav id="header-tabs" className="ml-auto" navbar>
             <Home />
+            {props.isAuthenticated && hasAnyAuthority(props.authorities, [AUTHORITIES.STORE_OWNER, AUTHORITIES.ADMIN])
+            && (<Cart /> )}
             {props.isAuthenticated && hasAnyAuthority(props.authorities, [AUTHORITIES.STORE_OWNER, AUTHORITIES.ADMIN])
             && (<EntitiesMenu />)}
             {props.isAuthenticated && hasAnyAuthority(props.authorities, [AUTHORITIES.ADMIN]) && (

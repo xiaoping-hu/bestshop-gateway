@@ -134,6 +134,21 @@ export const CartDiscountRuleUpdate = (props: ICartDiscountRuleUpdateProps) => {
                   }}
                 />
               </AvGroup>
+              <AvGroup>
+                <Label id="priorityLabel" for="cart-discount-rule-priority">
+                  <Translate contentKey="gatewayApp.cartCartDiscountRule.priority">Priority</Translate>
+                </Label>
+                <AvField
+                  id="cart-discount-rule-priority"
+                  type="string"
+                  className="form-control"
+                  name="priority"
+                  validate={{
+                    required: { value: true, errorMessage: translate('entity.validation.required') },
+                    number: { value: true, errorMessage: translate('entity.validation.number') },
+                  }}
+                />
+              </AvGroup>
               <Button tag={Link} id="cancel-save" to="/cart-discount-rule" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

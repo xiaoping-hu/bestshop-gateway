@@ -112,14 +112,14 @@ export const ProductBundleItem = (props: IProductBundleItemProps) => {
                   <td>{productBundleItem.discountAmount}</td>
                   <td>
                     {productBundleItem.productBundle ? (
-                      <Link to={`product-bundle/${productBundleItem.productBundle.id}`}>{productBundleItem.productBundle.id}</Link>
+                      <Link to={`product-bundle/${productBundleItem.productBundle.id}`}>{productBundleItem.productBundle.name}</Link>
                     ) : (
                       ''
                     )}
                   </td>
                   <td>
                     {productBundleItem.product ? (
-                      <Link to={`product/${productBundleItem.product.id}`}>{productBundleItem.product.id}</Link>
+                      <Link to={`product/${productBundleItem.product.id}`}>{productBundleItem.product.title}</Link>
                     ) : (
                       ''
                     )}

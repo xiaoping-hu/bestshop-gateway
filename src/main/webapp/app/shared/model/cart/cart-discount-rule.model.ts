@@ -6,6 +6,7 @@ export interface ICartDiscountRule {
   minimumQuantity?: number;
   discountQuantity?: number;
   discountAmount?: number;
+  priority?: number;
   cartDiscountRuleItems?: ICartDiscountRuleItem[];
 }
 

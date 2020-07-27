@@ -9,6 +9,7 @@ import PasswordResetInit from 'app/modules/account/password-reset/init/password-
 import PasswordResetFinish from 'app/modules/account/password-reset/finish/password-reset-finish';
 import Logout from 'app/modules/login/logout';
 import Home from 'app/modules/home/home';
+import Cart from 'app/modules/cart/cart';
 import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
@@ -36,6 +37,7 @@ const Routes = () => (
       <ErrorBoundaryRoute path="/account/reset/finish/:key?" component={PasswordResetFinish} />
       <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.STORE_OWNER, AUTHORITIES.USER]} />
+      <PrivateRoute path="/cart" component={Cart} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.STORE_OWNER, AUTHORITIES.USER]} />
       <ErrorBoundaryRoute path="/" exact component={Home} />
       <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER, AUTHORITIES.STORE_OWNER]} />
       <ErrorBoundaryRoute component={PageNotFound} />

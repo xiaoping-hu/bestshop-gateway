@@ -96,6 +96,7 @@ export default (state: ProductBundleState = initialState, action): ProductBundle
   }
 };
 
+const productApiBaseUrl = 'services/product/api';
 const apiUrl = 'services/product/api/product-bundles';
 
 // Actions
@@ -141,6 +142,14 @@ export const deleteEntity: ICrudDeleteAction<IProductBundle> = id => async dispa
   });
   dispatch(getEntities());
   return result;
+};
+
+export const getProductBundlesByProductId: ICrudGetAction<IProductBundle> = id => {
+  const requestUrl = `${productApiBaseUrl}/products/${id}/product-bundles`;
+  return {
+    type: ACTION_TYPES.FETCH_PRODUCTBUNDLE_LIST,
+    payload: axios.get<IProductBundle>(requestUrl),
+  };
 };
 
 export const reset = () => ({

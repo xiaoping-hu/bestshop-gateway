@@ -98,6 +98,9 @@ export const CartDiscountRule = (props: ICartDiscountRuleProps) => {
                   <Translate contentKey="gatewayApp.cartCartDiscountRule.discountAmount">Discount Amount</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('priority')}>
+                  <Translate contentKey="gatewayApp.cartCartDiscountRule.priority">Priority</Translate> <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -113,6 +116,7 @@ export const CartDiscountRule = (props: ICartDiscountRuleProps) => {
                   <td>{cartDiscountRule.minimumQuantity}</td>
                   <td>{cartDiscountRule.discountQuantity}</td>
                   <td>{cartDiscountRule.discountAmount}</td>
+                  <td>{cartDiscountRule.priority}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${cartDiscountRule.id}`} color="info" size="sm">
