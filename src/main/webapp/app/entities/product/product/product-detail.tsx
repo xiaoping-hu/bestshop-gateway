@@ -94,7 +94,7 @@ export const ProductDetail = (props: IProductDetailProps) => {
               <span>{bundle.name}</span>
             </Col>
             <Col md={6} className="d-flex flex-row-reverse" >
-              <Button onClick={addBundleToCart(productEntity.id)} color="primary" size="md">
+              <Button onClick={addBundleToCart(productEntity.id)} color="primary" size="sm">
                 <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Add Bundle to Cart</span>
               </Button>
             </Col>
