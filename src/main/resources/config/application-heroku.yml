@@ -27,3 +27,7 @@ spring:
     password: ${JDBC_DATABASE_PASSWORD}
     hikari:
       maximumPoolSize: 8
+
+oauth2:
+  web-client-configuration:
+    cookie-domain: bestshop-gateway.herokuapp.com
